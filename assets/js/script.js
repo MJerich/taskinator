@@ -225,6 +225,12 @@ function loadTasks() {
     // Converts tasks from the string format back into an array of objects.
     tasks = JSON.parse(tasks);
     // Iterates through a tasks array and creates task elements on the page from it.
+    
+    if (tasks === null) {
+        tasks = []
+        return false
+    }
+
     for (let i = 0; i < tasks.length; i++) {
         tasks[i].id = taskIdCounter
         let listItemEl = document.createElement("li");
